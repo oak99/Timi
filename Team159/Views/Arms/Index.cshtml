@@ -1,0 +1,77 @@
+﻿@model Team159.Models.ArmTypeLeagueViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-controller="Arms" asp-action="Index" method="get">
+    <p>
+        <label asp-for="armType" class="control-label"></label>：
+        <select asp-for="armType" asp-items="@Html.GetEnumSelectList(typeof(ArmType))">
+            <option value=""></option>
+        </select>
+        <label asp-for="league" class="control-label"></label>：
+        <select asp-for="league" asp-items="@Html.GetEnumSelectList(typeof(League))">
+            <option value=""></option>
+        </select>
+        <input type="submit" value="查询" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].ArmType)
+            </th>
+            <th>
+                英雄
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].Attach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].Defance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].Life)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arms[0].Damage)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Arms)
+        {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Player)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArmType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainHero),
+                @Html.DisplayFor(modelItem => item.SideHero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Life)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Damage)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

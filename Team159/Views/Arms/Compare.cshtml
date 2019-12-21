@@ -1,0 +1,68 @@
+﻿@model Team159.Models.CompareViewModel
+
+@{
+    ViewData["Title"] = "Compare";
+}
+
+<h4>@Model.Arm1.Player VS @Model.Arm2.Player</h4>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">英雄</th>
+            <td>@Model.Arm1.MainHero&nbsp;@Model.Arm1.SideHero</td>
+            <td>@Model.Arm2.MainHero&nbsp;@Model.Arm2.SideHero</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(model => model.Arm1.Attach)</th>
+            <td>@Html.DisplayFor(model => model.Arm1.Attach)</td>
+            <td>@Html.DisplayFor(model => model.Arm2.Attach)</td>
+            <td>
+                @{
+                    if (Model.Arm1.Attach > Model.Arm2.Attach)
+                    {
+                        <span class="badge badge-success">+@(Model.Arm1.Attach - Model.Arm2.Attach)</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">@(Model.Arm1.Attach - Model.Arm2.Attach)</span>
+                    }
+                }
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(model => model.Arm1.Defance)</th>
+            <td>@Html.DisplayFor(model => model.Arm1.Defance)</td>
+            <td>@Html.DisplayFor(model => model.Arm2.Defance)</td>
+            <td>
+                @{
+                    if (Model.Arm1.Defance > Model.Arm2.Defance)
+                    {
+                        <span class="badge badge-success">+@(Model.Arm1.Defance - Model.Arm2.Defance)</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">@(Model.Arm1.Defance - Model.Arm2.Defance)</span>
+                    }
+                }
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">@Html.DisplayNameFor(model => model.Arm1.Life)</th>
+            <td>@Html.DisplayFor(model => model.Arm1.Life)</td>
+            <td>@Html.DisplayFor(model => model.Arm2.Life)</td>
+            <td>
+                @{
+                    if (Model.Arm1.Life >= Model.Arm2.Life)
+                    {
+                        <span class="badge badge-success">+@(Model.Arm1.Life - Model.Arm2.Life)</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">@(Model.Arm1.Life - Model.Arm2.Life)</span>
+                    }
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>

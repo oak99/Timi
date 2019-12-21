@@ -1,0 +1,104 @@
+﻿@model Team159.Models.Arm
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Arm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Player" class="control-label"></label>
+                <input asp-for="Player" class="form-control" />
+                <span asp-validation-for="Player" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArmType" class="control-label"></label>
+                <select asp-for="ArmType" asp-items="@Html.GetEnumSelectList(typeof(ArmType))" class="selectpicker form-control"></select>
+                <span asp-validation-for="ArmType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainHero" class="control-label"></label>
+                <select asp-for="MainHero" asp-items="@Html.GetEnumSelectList(typeof(Hero))" class="selectpicker form-control"></select>
+                <span asp-validation-for="MainHero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SideHero" class="control-label"></label>
+                <select asp-for="SideHero" asp-items="@Html.GetEnumSelectList(typeof(Hero))" class="selectpicker form-control"></select>
+                <span asp-validation-for="SideHero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attach" class="control-label"></label>
+                <input asp-for="Attach" class="form-control" />
+                <span asp-validation-for="Attach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Defance" class="control-label"></label>
+                <input asp-for="Defance" class="form-control" />
+                <span asp-validation-for="Defance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Life" class="control-label"></label>
+                <input asp-for="Life" class="form-control" />
+                <span asp-validation-for="Life" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Damage" class="control-label"></label>
+                <input asp-for="Damage" class="form-control" />
+                <span asp-validation-for="Damage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="League" class="control-label"></label>
+                <select asp-for="League" asp-items="@Html.GetEnumSelectList(typeof(League))" class="selectpicker form-control"></select>
+                <span asp-validation-for="League" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleAttach" class="control-label"></label>
+                <input asp-for="SingleAttach" class="form-control" />
+                <span asp-validation-for="SingleAttach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleDefance" class="control-label"></label>
+                <input asp-for="SingleDefance" class="form-control" />
+                <span asp-validation-for="SingleDefance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleLife" class="control-label"></label>
+                <input asp-for="SingleLife" class="form-control" />
+                <span asp-validation-for="SingleLife" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamAttach" class="control-label"></label>
+                <input asp-for="TeamAttach" class="form-control" />
+                <span asp-validation-for="TeamAttach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamDefance" class="control-label"></label>
+                <input asp-for="TeamDefance" class="form-control" />
+                <span asp-validation-for="TeamDefance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamLife" class="control-label"></label>
+                <input asp-for="TeamLife" class="form-control" />
+                <span asp-validation-for="TeamLife" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
